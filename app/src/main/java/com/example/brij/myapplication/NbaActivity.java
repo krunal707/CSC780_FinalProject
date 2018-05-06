@@ -130,7 +130,7 @@ public class NbaActivity extends AppCompatActivity implements NavigationView.OnN
 
         }
         if(id==R.id.nav_mlb){
-            Intent intent = new Intent(this, NflActivity.class);
+            Intent intent = new Intent(this, NbaActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             //String gameName = null;
             intent.putExtra("gameName", "mlb");
