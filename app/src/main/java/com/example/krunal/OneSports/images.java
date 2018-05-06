@@ -2,9 +2,6 @@ package com.example.krunal.OneSports;
 
 import java.util.ArrayList;
 
-/**
- * Created by ppatel87 on 8/6/2017.
- */
 
 public class images {
 

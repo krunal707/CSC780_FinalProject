@@ -12,11 +12,6 @@ import com.example.krunal.OneSports.model.ScheduleModel;
 
 import java.util.ArrayList;
 
-;
-
-/**
- * Created by Brij on 8/6/17.
- */
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ItemHolder>{
 

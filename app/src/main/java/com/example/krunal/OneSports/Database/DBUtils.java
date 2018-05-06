@@ -18,9 +18,6 @@ import static com.example.krunal.OneSports.Database.Contract.TABLE_GAMES.COLUMN_
 import static com.example.krunal.OneSports.Database.Contract.TABLE_GAMES.COLUMN_NAME_LOCATION;
 import static com.example.krunal.OneSports.Database.Contract.TABLE_GAMES.TABLE_NAME;
 
-/**
- * Created by daminshah on 7/31/17.
- */
 
 public class DBUtils {
 

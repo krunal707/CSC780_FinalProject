@@ -1,8 +1,5 @@
 package com.example.krunal.OneSports.model;
 
-/**
- * Created by aquib on 8/6/17.
- */
 
 public class ScheduleModel {
     public String gameName;

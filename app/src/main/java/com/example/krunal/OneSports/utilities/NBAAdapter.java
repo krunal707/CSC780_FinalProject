@@ -15,9 +15,6 @@ import com.example.krunal.OneSports.model.NBAData;
 
 import java.util.ArrayList;
 
-/**
- * Created by Brij on 6/26/17.
- */
 
 public class NBAAdapter extends RecyclerView.Adapter<NBAAdapter.ItemHolder> {
     private ArrayList<NBAData> data;

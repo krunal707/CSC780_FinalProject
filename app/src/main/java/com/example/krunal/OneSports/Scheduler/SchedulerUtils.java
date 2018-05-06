@@ -12,9 +12,6 @@ import com.firebase.jobdispatcher.Job;
 import com.firebase.jobdispatcher.Lifetime;
 import com.firebase.jobdispatcher.Trigger;
 
-/**
- * Created by daminshah on 7/31/17.
- */
 
 public class SchedulerUtils {
 

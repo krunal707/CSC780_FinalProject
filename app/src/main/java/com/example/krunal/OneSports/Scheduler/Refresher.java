@@ -14,9 +14,6 @@ import com.firebase.jobdispatcher.JobParameters;
 
 import java.util.ArrayList;
 
-/**
- * Created by daminshah on 7/31/17.
- */
 
 public class Refresher extends com.firebase.jobdispatcher.JobService {
 

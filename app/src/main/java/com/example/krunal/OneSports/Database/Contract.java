@@ -2,9 +2,6 @@ package com.example.krunal.OneSports.Database;
 
 import android.provider.BaseColumns;
 
-/**
- * Created by daminshah on 7/31/17.
- */
 
 public class Contract  {
 
