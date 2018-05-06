@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.brij.myapplication">
+    package="com.example.krunal.OneSports">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -17,7 +17,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name="com.example.krunal.OneSports.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,16 +25,16 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".Scheduler.Refresher" />
+        <service android:name="com.example.krunal.OneSports.Scheduler.Refresher" />
 
-        <activity android:name=".NbaActivity" />
-        <activity android:name=".GameDetails" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".MapsActivity" />
-        <activity android:name=".GetUserLocation" />
-        <activity android:name=".ScheduleGames" />
-        <activity android:name=".ScheduleDetails" />
-        <activity android:name=".ScheduleGamesMLB"></activity>
+        <activity android:name="com.example.krunal.OneSports.NbaActivity" />
+        <activity android:name="com.example.krunal.OneSports.GameDetails" />
+        <activity android:name="com.example.krunal.OneSports.MainActivity" />
+        <activity android:name="com.example.krunal.OneSports.MapsActivity" />
+        <activity android:name="com.example.krunal.OneSports.GetUserLocation" />
+        <activity android:name="com.example.krunal.OneSports.ScheduleGames" />
+        <activity android:name="com.example.krunal.OneSports.ScheduleDetails" />
+        <activity android:name="com.example.krunal.OneSports.ScheduleGamesMLB"></activity>
     </application>
 
 </manifest>

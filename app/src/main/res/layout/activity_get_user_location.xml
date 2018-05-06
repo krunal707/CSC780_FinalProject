@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.brij.myapplication.GetUserLocation">
+    tools:context="com.example.krunal.OneSports.GetUserLocation">
 
     <TextView
         android:id="@+id/latitude_text"

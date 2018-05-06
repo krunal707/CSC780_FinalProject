@@ -9,7 +9,7 @@
     android:background="#fff"
     android:weightSum="1"
     tools:ignore="UseCompoundDrawables"
-    tools:context="com.example.brij.myapplication.SplashScreenActivity">
+    tools:context="com.example.krunal.OneSports.SplashScreenActivity">
 
 
     <ImageView
