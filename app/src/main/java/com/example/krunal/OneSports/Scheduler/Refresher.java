@@ -58,8 +58,8 @@ public class Refresher extends com.firebase.jobdispatcher.JobService {
             nba = parseJSON.parseJsonData(context , jsonNBA);
 
 
-            String jsonMLB = NetworkUtils.getResponseFromHttpUrlNfl();
-            nfl = parseJSON.parseJsonData(context , jsonMLB);
+            String jsonNFL = NetworkUtils.getResponseFromHttpUrlNfl();
+            nfl = parseJSON.parseJsonData(context , jsonNFL);
 
 
             ArrayList<NBAData> results=new ArrayList<>();

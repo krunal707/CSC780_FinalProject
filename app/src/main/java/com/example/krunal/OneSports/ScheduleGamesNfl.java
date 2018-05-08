@@ -24,7 +24,7 @@ public class ScheduleGamesNfl extends AppCompatActivity {
 
     private RecyclerView rv;
 
-    private final String TAG = "schedule games MLB";
+    private final String TAG = "schedule games Nfl";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class ScheduleGamesNfl extends AppCompatActivity {
             String scheduleResponse = "";
             URL url = null;
             try {
-                url = new URL("https://api.mysportsfeeds.com/v1.1/pull/mlb/2017-regular/full_game_schedule.json");
+                url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nhl/2017-2018-regular/full_game_schedule.json");
                 Log.d(TAG, "URL is>>>>>>>>>>"+url);
             } catch (MalformedURLException e) {
                 e.printStackTrace();

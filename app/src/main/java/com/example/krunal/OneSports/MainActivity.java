@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
             Intent intent = new Intent(this, NbaActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             //String gameName = null;
-            intent.putExtra("gameName", "mlb");
+            intent.putExtra("gameName", "nfl");
             startActivity(intent);
 
         }

@@ -1,5 +1,6 @@
 package com.example.krunal.OneSports;
 
+import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.database.Cursor;
@@ -39,7 +40,7 @@ import java.util.ArrayList;
 
 public class NflActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, LoaderManager.LoaderCallbacks<ArrayList<Void>>, NBAAdapter.ItemClickListener {
 
-    static final String TAG = "NBA activity";
+    static final String TAG = "Nfl activity";
     private TextView errorMessgaeTextView;
     private ProgressBar progressIndicator;
     private  NavigationView navigationView;
@@ -133,7 +134,7 @@ public class NflActivity extends AppCompatActivity implements NavigationView.OnN
             Intent intent = new Intent(this, NflActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             //String gameName = null;
-            intent.putExtra("gameName", "mlb");
+            intent.putExtra("gameName", "nfl");
             startActivity(intent);
 
         }
@@ -179,6 +180,7 @@ public class NflActivity extends AppCompatActivity implements NavigationView.OnN
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+    @SuppressLint("StaticFieldLeak")
     @Override
     public Loader<ArrayList<Void>> onCreateLoader(int id, Bundle args) {
         return new AsyncTaskLoader<ArrayList<Void>>(this) {
@@ -194,7 +196,7 @@ public class NflActivity extends AppCompatActivity implements NavigationView.OnN
             }
 
             ArrayList<NBAData> nba= null;
-            ArrayList<NBAData> mlb= null;
+            ArrayList<NBAData> nfl = null;
 
             ArrayList<NBAData> scoreFinal= new ArrayList<>();
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -209,18 +211,18 @@ public class NflActivity extends AppCompatActivity implements NavigationView.OnN
                         jsonNBA  = NetworkUtils.getResponseFromHttpUrl();
 
                     }
-                    else if(gameName.equals("mlb")){
+                    else if(gameName.equals("nfl")){
                         jsonNBA  = NetworkUtils.getResponseFromHttpUrlNfl();
                     }
                     nba = parseJSON.parseJsonData(NflActivity.this, jsonNBA);
 
                     Log.d(TAG,"NBA------------"+jsonNBA);
 
-//                    String jsonMLB = NetworkUtils.getResponseFromHttpUrlMlb();
-//                    mlb = parseJSON.parseJsonData(MainActivity.this , jsonMLB);
+//                    String jsonNFL = NetworkUtils.getResponseFromHttpUrlNfl();
+//                    nfl = parseJSON.parseJsonData(MainActivity.this , jsonNFL);
 
                     scoreFinal.addAll(nba);
-                    //scoreFinal.addAll(mlb);
+                    //scoreFinal.addAll(nfl);
 
                     db=new DBHelper(this.getContext()).getWritableDatabase();
                     DBUtils.insertnews(db,scoreFinal);

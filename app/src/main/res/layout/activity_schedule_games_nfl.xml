@@ -9,21 +9,10 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-
-    <!--<TextView-->
-    <!--android:id="@+id/error_message_display"-->
-    <!--android:textSize="22sp"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:padding="16dp"-->
-    <!--android:text="Error!!"-->
-    <!--android:visibility="invisible" />-->
-
-
     <TextView
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="MLB"
+        android:text="NFL"
         android:textStyle="bold"
         android:textSize="30sp"
         android:paddingBottom="30dp"/>
@@ -44,6 +33,5 @@
             android:textAlignment="center" />
 
     </android.support.v7.widget.CardView>
-
 
 </LinearLayout>

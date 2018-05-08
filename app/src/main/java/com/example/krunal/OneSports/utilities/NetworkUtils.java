@@ -142,69 +142,7 @@ public class NetworkUtils {
         return  data;
 
     }
-//
-//
-//
-//    //MLB api call
-//    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-//    public static String getResponseFromHttpUrlMllb()  {
-//        String data = " ";
-//        StringBuilder builder = new StringBuilder();
-//        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//        Calendar cal = Calendar.getInstance();
-//        //API is giving us data for a day prior to the current day, this is why passing the date of the day before
-//        cal.add(Calendar.DATE, -2);
-//        dateFormat.format(cal.getTime());
-//
-//        String lastDayDate = ""+dateFormat.format(cal.getTime());
-//        lastDayDate = lastDayDate.replaceAll("-","");
-//        lastDayDate = "20170424";
-//
-//        Log.d(TAG, "DATE DEBUG-------->>>>>: "+lastDayDate);
-//        try {
-//
-//            URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nfl/2017-playoff/scoreboard.json?fordate=20170114"+lastDayDate);
-//            String testValue = "krunal7017:Onesports@1";
-//            byte[] data1=testValue.getBytes(StandardCharsets.UTF_8);
-//            String encoding=Base64.encodeToString(data1 ,Base64.DEFAULT);
-//            //String  encoding="Basic " + new String(android.util.Base64.encode(testValue.getBytes(), android.util.Base64.NO_WRAP));
-//            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-//            connection.setRequestMethod("GET");
-//            connection.setDoInput(true);
-//            // connection.setDoOutput(true);
-//            connection.setRequestProperty("Authorization", "Basic "+ encoding );
-//            InputStream content = (InputStream)connection.getInputStream();
-////            BufferedReader in   =
-////                    new BufferedReader (new InputStreamReader(content));
-////            String line;
-////
-////            while ((line = in.readLine()) != null)
-////            {
-////                builder.append(line);
-////
-////            }
-//
-//            Scanner scanner = new Scanner(content);
-//            scanner.useDelimiter("\\A");
-//
-//            boolean hasInput = scanner.hasNext();
-//            if (hasInput) {
-//                data=data+scanner.next();
-//            } else {
-//                data=null;
-//            }
-//        }
-//        catch(Exception e)
-//        {
-//            e.printStackTrace();
-//            Log.d(TAG ,"Exception at NFL in NetworksUtils");
-//
-//        }
-//        Log.d(TAG, "NHL: "+data);
-//        return  data;
-//
-//    }
-//
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static String getScheduleNBA(URL url){
         String data = "";
