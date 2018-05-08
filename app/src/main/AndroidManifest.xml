@@ -34,7 +34,7 @@
         <activity android:name="com.example.krunal.OneSports.GetUserLocation" />
         <activity android:name="com.example.krunal.OneSports.ScheduleGames" />
         <activity android:name="com.example.krunal.OneSports.ScheduleDetails" />
-        <activity android:name="com.example.krunal.OneSports.ScheduleGamesMLB"></activity>
+        <activity android:name="com.example.krunal.OneSports.ScheduleGamesNfl"></activity>
     </application>
 
 </manifest>

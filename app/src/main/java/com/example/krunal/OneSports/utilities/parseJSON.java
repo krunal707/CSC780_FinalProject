@@ -52,14 +52,14 @@ public class parseJSON {
         return result;
     }
 
-    public static ArrayList<NBAData> parseJsonDataMLB(Context context, String json)throws JSONException{
+    public static ArrayList<NBAData> parseJsonDataNfl(Context context, String json)throws JSONException{
         ArrayList<NBAData> result = new ArrayList<>();
         JSONObject mainResponse = new JSONObject(json);
 //JSONArray gameScore = mainResponse.getJSONArray("gameScore");
         JSONObject scoreboard = mainResponse.getJSONObject("scoreboard");
         JSONArray gameScore = scoreboard.getJSONArray("gameScore");
         Log.d("gamescore", gameScore.toString());
-// Log.d(TAG, "****MLB gamescore length: ", ""+gameScore.length());
+// Log.d(TAG, "****NFL gamescore length: ", ""+gameScore.length());
 
 
 

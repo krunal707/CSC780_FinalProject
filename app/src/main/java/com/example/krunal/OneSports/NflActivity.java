@@ -129,7 +129,7 @@ public class NflActivity extends AppCompatActivity implements NavigationView.OnN
             startActivity(intent);
 
         }
-        if(id==R.id.nav_mlb){
+        if(id==R.id.nav_nfl){
             Intent intent = new Intent(this, NflActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             //String gameName = null;
@@ -155,8 +155,8 @@ public class NflActivity extends AppCompatActivity implements NavigationView.OnN
 
         }
 
-        if(id == R.id.nav_schedule_mlb){
-        Intent intent = new Intent(this, ScheduleGamesMLB.class);
+        if(id == R.id.nav_schedule_nfl){
+        Intent intent = new Intent(this, ScheduleGamesNfl.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -210,7 +210,7 @@ public class NflActivity extends AppCompatActivity implements NavigationView.OnN
 
                     }
                     else if(gameName.equals("mlb")){
-                        jsonNBA  = NetworkUtils.getResponseFromHttpUrlMlb();
+                        jsonNBA  = NetworkUtils.getResponseFromHttpUrlNfl();
                     }
                     nba = parseJSON.parseJsonData(NflActivity.this, jsonNBA);
 

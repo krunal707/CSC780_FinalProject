@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
             startActivity(intent);
 
         }
-        if (id == R.id.nav_mlb) {
+        if (id == R.id.nav_nfl) {
             Intent intent = new Intent(this, NbaActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             //String gameName = null;
@@ -160,8 +160,8 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
             startActivity(intent);
 
         }
-        if(id == R.id.nav_schedule_mlb){
-            Intent intent = new Intent(this, ScheduleGamesMLB.class);
+        if(id == R.id.nav_schedule_nfl){
+            Intent intent = new Intent(this, ScheduleGamesNfl.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
             }
 
             ArrayList<NBAData> nba = null;
-            ArrayList<NBAData> mlb = null;
+            ArrayList<NBAData> nfl = null;
 
             ArrayList<NBAData> scoreFinal = new ArrayList<>();
 
@@ -216,18 +216,18 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
 
                     Log.d(TAG, "NBA------------" + jsonNBA);
 
-                    String jsonMLB = NetworkUtils.getResponseFromHttpUrlMlb();
-                    mlb = parseJSON.parseJsonDataMLB(MainActivity.this, jsonMLB);
+                    String jsonNfl = NetworkUtils.getResponseFromHttpUrlNfl();
+                    nfl = parseJSON.parseJsonDataNfl(MainActivity.this, jsonNfl);
 
                     scoreFinal.addAll(nba);
-                    scoreFinal.addAll(mlb);
+                    scoreFinal.addAll(nfl);
 
                     int nbaLength = nba.size();
-                    int mlbLength = mlb.size();
-                    if(nbaLength>=mlbLength){
+                    int nflLength = nfl.size();
+                    if(nbaLength>=nflLength){
                         for(int i = 0;i<nba.size();i++){
-                            if(i!=mlbLength && i<mlbLength){
-                                scoreFinal.add(mlb.get(i));
+                            if(i!=nflLength && i<nflLength){
+                                scoreFinal.add(nfl.get(i));
                                 scoreFinal.add(nba.get(i));
                             }
                             else{
@@ -236,13 +236,13 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
                         }
                     }
                     else{
-                        for(int i = 0;i<mlb.size();i++){
+                        for(int i = 0;i<nfl.size();i++){
                             if(i!=nbaLength && i<nbaLength){
-                                scoreFinal.add(mlb.get(i));
+                                scoreFinal.add(nfl.get(i));
                                 scoreFinal.add(nba.get(i));
                             }
                             else{
-                                scoreFinal.add(mlb.get(i));
+                                scoreFinal.add(nfl.get(i));
                             }
                         }
                     }

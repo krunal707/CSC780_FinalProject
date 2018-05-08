@@ -80,7 +80,7 @@ public class NetworkUtils {
 
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public static String getResponseFromHttpUrlMlb()  {
+    public static String getResponseFromHttpUrlNfl()  {
 
         String data = " ";
         StringBuilder builder = new StringBuilder();
@@ -92,21 +92,21 @@ public class NetworkUtils {
         lastDayDate2 = lastDayDate2.replaceAll("-","");
         //This is because the API wasn't giving us current data, for live score, please check LiveScoreDemo Activity
         lastDayDate2 = "20171022";
-        Log.d(TAG, "DATE DEBUG MLB-------->>>>>: "+lastDayDate2);
+        Log.d(TAG, "DATE DEBUG NFL-------->>>>>: "+lastDayDate2);
 
 
         try {
 
             URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nfl/2017-regular/scoreboard.json?fordate=" + lastDayDate2);
             String testValue = "krunal7017:Onesports@1";
-            Log.d(TAG,"getting data in MLB ");
+            Log.d(TAG,"getting data in NFL ");
             byte[] data1=testValue.getBytes(StandardCharsets.UTF_8);
             String encoding=Base64.encodeToString(data1 ,Base64.DEFAULT);
             //String  encoding="Basic " + new String(android.util.Base64.encode(testValue.getBytes(), android.util.Base64.NO_WRAP));
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setDoInput(true);
-            Log.d(TAG,"getting data in MLB1 ");
+
             // connection.setDoOutput(true);
             connection.setRequestProperty("Authorization", "Basic "+ encoding );
             InputStream content = (InputStream)connection.getInputStream();
@@ -135,7 +135,7 @@ public class NetworkUtils {
         catch(Exception e)
         {
             e.printStackTrace();
-            Log.d(TAG ,"Exception at MLB in NetworksUtils");
+            Log.d(TAG ,"Exception at NFL in NetworksUtils");
 
         }
         Log.d(TAG, data);
@@ -210,7 +210,7 @@ public class NetworkUtils {
         String data = "";
         try{
             //url = new URL("https://api.mysportsfeeds.com/v1.1/pull/nba/2017-playoff/full_game_schedule.json");
-            String testValue = "brijshah27:brij1234";
+            String testValue = "krunal7017:Onesports@1";
             byte[] data1=testValue.getBytes(StandardCharsets.UTF_8);
             String encoding=Base64.encodeToString(data1 ,Base64.DEFAULT);
             Log.d(TAG, "^^^INSIDE TRY");
