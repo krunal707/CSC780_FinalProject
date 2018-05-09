@@ -204,7 +204,7 @@ public class ScheduleGames_Nba extends AppCompatActivity
             startActivity(intent);
 
         }
-        if(id==R.id.nav_mlb){
+        if(id==R.id.nav_nfl){
             Intent intent = new Intent(this, NbaActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             //String gameName = null;
@@ -223,16 +223,17 @@ public class ScheduleGames_Nba extends AppCompatActivity
             Intent intent = new Intent(this, ScheduleGames_Nba.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             //String gameName = null;7
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-            //intent.putExtra("gameName", "all");
+//            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//            drawer.closeDrawer(GravityCompat.START);
+            intent.putExtra("gameName", "nba_schedule");
             startActivity(intent);
         }
-        if(id == R.id.nav_schedule_mlb){
-            Intent intent = new Intent(this, ScheduleGamesMLB.class);
+        if(id == R.id.nav_schedule_nfl){
+            Intent intent = new Intent(this, ScheduleGamesNfl.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
+//            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//            drawer.closeDrawer(GravityCompat.START);
+            intent.putExtra("gameName", "nfl_schedule");
             startActivity(intent);
         }
 
