@@ -25,11 +25,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-<<<<<<< HEAD
-    //noinspection GradleCompatible
-=======
-    //noinspection GradleCompatible,GradleCompatible
->>>>>>> 475b8956d4ed30d39d1c495f869424f8af290aae
+
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:25.3.1'

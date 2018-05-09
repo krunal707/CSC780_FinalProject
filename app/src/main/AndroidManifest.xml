@@ -35,7 +35,6 @@
         <activity android:name=".GetUserLocation" />
         <activity android:name=".ScheduleDetails" />
         <activity android:name=".ScheduleGamesMLB" />
-        <activity android:name=".ScheduleGamesNba" />
         <activity
             android:name=".ScheduleGames_Nba"
             android:label="@string/title_activity_schedule_games__nba"
