@@ -20,16 +20,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class ScheduleGamesMLB extends AppCompatActivity {
+public class ScheduleGamesNfl extends AppCompatActivity {
 
     private RecyclerView rv;
 
-    private final String TAG = "schedule games MLB";
+    private final String TAG = "schedule games Nfl";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_schedule_games_mlb);
+        setContentView(R.layout.activity_schedule_games_nfl);
 
         rv = (RecyclerView) findViewById(R.id.news_response_result2);
 
@@ -51,7 +51,7 @@ public class ScheduleGamesMLB extends AppCompatActivity {
             String scheduleResponse = "";
             URL url = null;
             try {
-                url = new URL("https://api.mysportsfeeds.com/v1.1/pull/mlb/2017-regular/full_game_schedule.json");
+                url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nhl/2017-2018-regular/full_game_schedule.json");
                 Log.d(TAG, "URL is>>>>>>>>>>"+url);
             } catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -88,8 +88,8 @@ public class ScheduleGamesMLB extends AppCompatActivity {
                     @Override
                     public void onItemClick(int clickedItemIndex) {
                         String date = scheduleModels.get(clickedItemIndex).getGameDate();
-                        Toast.makeText(ScheduleGamesMLB.this,"Showing schedule for:"+date,Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(ScheduleGamesMLB.this, ScheduleDetails.class);
+                        Toast.makeText(ScheduleGamesNfl.this,"Showing schedule for:"+date,Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(ScheduleGamesNfl.this, ScheduleDetails.class);
                         intent.putExtra("homeTeam", scheduleModels.get(clickedItemIndex).getHomeTeam());
                         intent.putExtra("awayTeam", scheduleModels.get(clickedItemIndex).getAwayTeam());
                         intent.putExtra("gameDate", scheduleModels.get(clickedItemIndex).getGameDate());

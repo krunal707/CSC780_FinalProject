@@ -14,7 +14,7 @@
                 android:icon="@drawable/ic_basketball"
                 android:title="NBA" />
             <item
-                android:id="@+id/nav_mlb"
+                android:id="@+id/nav_nfl"
                 android:icon="@drawable/ic_ba"
                 android:title="NFL" />
             <item
@@ -22,7 +22,7 @@
                 android:icon="@drawable/ic_calendar"
                 android:title="NBA Schedule" />
             <item
-                android:id="@+id/nav_schedule_mlb"
+                android:id="@+id/nav_schedule_nfl"
                 android:icon="@drawable/ic_calendar"
                 android:title="NFL Schedule" />
             <item

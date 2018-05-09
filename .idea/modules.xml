@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CSC780_FinalProject.iml" filepath="$PROJECT_DIR$/CSC780_FinalProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSC780_FinalProject.iml" filepath="$PROJECT_DIR$/CSC780_FinalProject.iml" />
       <module fileurl="file://D:\android\finalProject\CSC780_FinalProject\ST.iml" filepath="D:\android\finalProject\CSC780_FinalProject\ST.iml" />
       <module fileurl="file://D:\android\finalProject\CSC780_FinalProject\ScoreTracker-CS5540.iml" filepath="D:\android\finalProject\CSC780_FinalProject\ScoreTracker-CS5540.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -3,6 +3,8 @@ package com.example.krunal.OneSports.Scheduler;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.widget.Toast;
 
 import com.example.krunal.OneSports.Database.DBHelper;
@@ -21,6 +23,7 @@ public class Refresher extends com.firebase.jobdispatcher.JobService {
     @Override
     public boolean onStartJob(JobParameters job) {
         new AsyncTask() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             protected Object doInBackground(Object[] params) {
 
@@ -44,24 +47,25 @@ public class Refresher extends com.firebase.jobdispatcher.JobService {
         return false;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static void newsrefresh(Context context) {
         try {
            // URL newsURL = NetworkUtils.buildURL();
             ArrayList<NBAData> nba= null;
-            ArrayList<NBAData> mlb= null;
+            ArrayList<NBAData> nfl= null;
 
             String jsonNBA = NetworkUtils.getResponseFromHttpUrl();
             nba = parseJSON.parseJsonData(context , jsonNBA);
 
 
-            String jsonMLB = NetworkUtils.getResponseFromHttpUrlMlb();
-            mlb = parseJSON.parseJsonData(context , jsonMLB);
+            String jsonNFL = NetworkUtils.getResponseFromHttpUrlNfl();
+            nfl = parseJSON.parseJsonData(context , jsonNFL);
 
 
             ArrayList<NBAData> results=new ArrayList<>();
 
             results.addAll(nba);
-            results.addAll(mlb);
+            results.addAll(nfl);
 
 
 

@@ -1,5 +1,6 @@
 package com.example.krunal.OneSports;
 
+import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.database.Cursor;
@@ -129,11 +130,11 @@ public class NbaActivity extends AppCompatActivity implements NavigationView.OnN
             startActivity(intent);
 
         }
-        if(id==R.id.nav_mlb){
+        if(id==R.id.nav_nfl){
             Intent intent = new Intent(this, NbaActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             //String gameName = null;
-            intent.putExtra("gameName", "mlb");
+            intent.putExtra("gameName", "nfl");
             startActivity(intent);
 
         }
@@ -153,8 +154,8 @@ public class NbaActivity extends AppCompatActivity implements NavigationView.OnN
             //intent.putExtra("gameName", "all");
             startActivity(intent);
         }
-        if(id == R.id.nav_schedule_mlb){
-            Intent intent = new Intent(this, ScheduleGamesMLB.class);
+        if(id == R.id.nav_schedule_nfl){
+            Intent intent = new Intent(this, ScheduleGamesNfl.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
@@ -177,6 +178,7 @@ public class NbaActivity extends AppCompatActivity implements NavigationView.OnN
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+    @SuppressLint("StaticFieldLeak")
     @Override
     public Loader<ArrayList<Void>> onCreateLoader(int id, Bundle args) {
         return new AsyncTaskLoader<ArrayList<Void>>(this) {
@@ -188,7 +190,7 @@ public class NbaActivity extends AppCompatActivity implements NavigationView.OnN
             }
 
             ArrayList<NBAData> nba= null;
-            ArrayList<NBAData> mlb= null;
+            ArrayList<NBAData> nfl = null;
 
             ArrayList<NBAData> scoreFinal= new ArrayList<>();
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -203,18 +205,18 @@ public class NbaActivity extends AppCompatActivity implements NavigationView.OnN
                         jsonNBA  = NetworkUtils.getResponseFromHttpUrl();
 
                     }
-                    else if(gameName.equals("mlb")){
-                        jsonNBA  = NetworkUtils.getResponseFromHttpUrlMlb();
+                    else if(gameName.equals("nfl")){
+                        jsonNBA  = NetworkUtils.getResponseFromHttpUrlNfl();
                     }
                     nba = parseJSON.parseJsonData(NbaActivity.this, jsonNBA);
 
                     Log.d(TAG,"NBA-->"+jsonNBA);
 
-//                    String jsonMLB = NetworkUtils.getResponseFromHttpUrlMlb();
-//                    mlb = parseJSON.parseJsonData(MainActivity.this , jsonMLB);
+//                    String jsonNFL = NetworkUtils.getResponseFromHttpUrlNfl();
+//                    nfl = parseJSON.parseJsonData(MainActivity.this , jsonNFL);
 
                     scoreFinal.addAll(nba);
-                    //scoreFinal.addAll(mlb);
+                    //scoreFinal.addAll(nfl);
 
                     db=new DBHelper(this.getContext()).getWritableDatabase();
                     DBUtils.insertnews(db,scoreFinal);
