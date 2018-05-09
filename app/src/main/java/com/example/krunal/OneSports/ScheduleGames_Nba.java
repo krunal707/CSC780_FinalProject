@@ -53,6 +53,7 @@ public class ScheduleGames_Nba extends AppCompatActivity
     private RecyclerView rv;
     private final String TAG = "schedulegames_NBA";
     private NBAAdapter nbaAdapter2;
+    private static final int LOADER = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +108,7 @@ public class ScheduleGames_Nba extends AppCompatActivity
 //        DBUtils.deleteNewsitem(db);
 //        LoaderManager loaderManager=getSupportLoaderManager();
 //        loaderManager.restartLoader(LOADER,null,this).forceLoad();
-//        SchedulerUtils.scheduleRefresh(this);
+        SchedulerUtils.scheduleRefresh(this);
     }
 
     @Override
@@ -259,10 +260,22 @@ public class ScheduleGames_Nba extends AppCompatActivity
     }
 
 
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.schedule_games_nba, menu);
+//        return true;
+//    }
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.schedule_games_nba, menu);
+//        getMenuInflater().inflate(R.menu.schedule_games_nba, menu);
+//        return true;
+
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -271,14 +284,20 @@ public class ScheduleGames_Nba extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+//        int id = item.getItemId();
+
+        int itemSelected = item.getItemId();
+        if (itemSelected == R.id.action_search) {
+            LoaderManager loaderManager = getSupportLoaderManager();
+            loaderManager.restartLoader(LOADER, null, (LoaderManager.LoaderCallbacks<Object>) this).forceLoad();
+        }
 
         //noinspection SimplifiableIfStatement
 //        if (id == R.id.action_settings) {
 //            return true;
 //        }
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 }
 

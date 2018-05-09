@@ -178,7 +178,7 @@ public class ScheduleGames_Nfl extends AppCompatActivity
 
         super.onBackPressed();
 
-        Intent intent = new Intent(this, ScheduleGames_Nba.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
