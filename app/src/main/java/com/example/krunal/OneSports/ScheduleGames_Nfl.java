@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.LoaderManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -39,6 +40,7 @@ public class ScheduleGames_Nfl extends AppCompatActivity
     private RecyclerView rv;
     private final String TAG = "schedulegames_NFL";
     private NBAAdapter nbaAdapter2;
+    private static final int LOADER = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -247,7 +249,10 @@ public class ScheduleGames_Nfl extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.schedule_games_nba, menu);
+//        getMenuInflater().inflate(R.menu.schedule_games_nba, menu);
+//        return true;
+
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -256,13 +261,22 @@ public class ScheduleGames_Nfl extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+//        int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+
+
+        int itemSelected = item.getItemId();
+        if (itemSelected == R.id.action_search) {
+            LoaderManager loaderManager = getSupportLoaderManager();
+            loaderManager.restartLoader(LOADER, null, (LoaderManager.LoaderCallbacks<Object>) this).forceLoad();
         }
 
-        return super.onOptionsItemSelected(item);
+        return true;
+
+//        return super.onOptionsItemSelected(item);
     }
 }

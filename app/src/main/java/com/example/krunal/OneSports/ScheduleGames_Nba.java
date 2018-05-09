@@ -225,7 +225,7 @@ public class ScheduleGames_Nba extends AppCompatActivity
             //String gameName = null;7
 //            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 //            drawer.closeDrawer(GravityCompat.START);
-            intent.putExtra("gameName", "nba_schedule");
+            intent.putExtra("gameName", "Nba Schedule");
             startActivity(intent);
         }
         if(id == R.id.nav_schedule_nfl){
@@ -233,7 +233,7 @@ public class ScheduleGames_Nba extends AppCompatActivity
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
 //            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 //            drawer.closeDrawer(GravityCompat.START);
-            intent.putExtra("gameName", "nfl_schedule");
+            intent.putExtra("gameName", "Nfl Schedule");
             startActivity(intent);
         }
 
@@ -274,9 +274,9 @@ public class ScheduleGames_Nba extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }

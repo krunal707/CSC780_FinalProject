@@ -15,7 +15,7 @@
                 android:title="NBA" />
             <item
                 android:id="@+id/nav_nfl"
-                android:icon="@drawable/ic_ba"
+                android:icon="@drawable/nfl"
                 android:title="NFL" />
             <item
                 android:id="@+id/nav_schedule_nba"
@@ -26,9 +26,13 @@
                 android:icon="@drawable/ic_calendar"
                 android:title="NFL Schedule" />
             <item
-                android:id="@+id/nav_schedule_nbaa"
+                android:id="@+id/nav_nba_standings"
                 android:icon="@drawable/ic_calendar"
-                android:title="NBAA Schedule" />
+                android:title="NBA Standings" />
+            <item
+                android:id="@+id/nav_nfl_standings"
+                android:icon="@drawable/ic_calendar"
+                android:title="NFL Standings" />
 
         </menu>
     </item>
