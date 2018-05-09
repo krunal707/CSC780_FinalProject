@@ -27,28 +27,31 @@
 
         <service android:name=".Scheduler.Refresher" />
 
-
         <activity android:name=".NbaActivity" />
         <activity android:name=".GameDetails" />
         <activity android:name=".MainActivity" />
         <activity android:name=".MapsActivity" />
         <activity android:name=".GetUserLocation" />
         <activity android:name=".ScheduleDetails" />
-        <!--<activity android:name=".ScheduleGamesMLB" />-->
+        <!-- <activity android:name=".ScheduleGamesMLB" /> -->
         <activity
             android:name=".ScheduleGames_Nba"
             android:label="@string/title_activity_schedule_games__nba"
+            android:theme="@style/AppTheme" />
+
+        <!-- <activity android:name="com.example.krunal.OneSports.NbaActivity" /> -->
+        <!-- <activity android:name="com.example.krunal.OneSports.GameDetails" /> -->
+        <!-- <activity android:name="com.example.krunal.OneSports.MainActivity" /> -->
+        <!-- <activity android:name="com.example.krunal.OneSports.MapsActivity" /> -->
+        <!-- <activity android:name="com.example.krunal.OneSports.GetUserLocation" /> -->
+        <!-- &lt;!&ndash;<activity android:name="com.example.krunal.OneSports.ScheduleGames" />&ndash;&gt; -->
+        <!-- <activity android:name="com.example.krunal.OneSports.ScheduleDetails" /> -->
+        <!-- <activity android:name="com.example.krunal.OneSports.ScheduleGamesNfl"></activity> -->
+
+        <activity
+            android:name=".ScheduleGames_Nfl"
+            android:label="@string/title_activity_schedule_games__nfl"
             android:theme="@style/AppTheme"></activity>
-
-        <!--<activity android:name="com.example.krunal.OneSports.NbaActivity" />-->
-        <!--<activity android:name="com.example.krunal.OneSports.GameDetails" />-->
-        <!--<activity android:name="com.example.krunal.OneSports.MainActivity" />-->
-        <!--<activity android:name="com.example.krunal.OneSports.MapsActivity" />-->
-        <!--<activity android:name="com.example.krunal.OneSports.GetUserLocation" />-->
-        <!--&lt;!&ndash;<activity android:name="com.example.krunal.OneSports.ScheduleGames" />&ndash;&gt;-->
-        <!--<activity android:name="com.example.krunal.OneSports.ScheduleDetails" />-->
-        <!--<activity android:name="com.example.krunal.OneSports.ScheduleGamesNfl"></activity>-->
-
     </application>
 
 </manifest>

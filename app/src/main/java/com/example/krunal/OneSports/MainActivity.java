@@ -161,21 +161,21 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
 
         }
         if(id == R.id.nav_schedule_nfl){
-            Intent intent = new Intent(this, ScheduleGamesNfl.class);
+            Intent intent = new Intent(this, ScheduleGames_Nfl.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
             startActivity(intent);
 
         }
-        if(id == R.id.nav_schedule_nbaa){
-            Intent intent = new Intent(this, ScheduleGames_Nba.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-            startActivity(intent);
-
-        }
+//        if(id == R.id.nav_schedule_nbaa){
+//            Intent intent = new Intent(this, ScheduleGames_Nba.class);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//            drawer.closeDrawer(GravityCompat.START);
+//            startActivity(intent);
+//
+//        }
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
