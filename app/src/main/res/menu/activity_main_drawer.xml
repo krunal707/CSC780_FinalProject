@@ -18,13 +18,18 @@
                 android:icon="@drawable/ic_ba"
                 android:title="NFL" />
             <item
-                android:id="@+id/nav_schedule"
+                android:id="@+id/nav_schedule_nba"
                 android:icon="@drawable/ic_calendar"
                 android:title="NBA Schedule" />
             <item
                 android:id="@+id/nav_schedule_mlb"
                 android:icon="@drawable/ic_calendar"
                 android:title="NFL Schedule" />
+            <item
+                android:id="@+id/nav_schedule_nbaa"
+                android:icon="@drawable/ic_calendar"
+                android:title="NBAA Schedule" />
+
         </menu>
     </item>
     </group>

@@ -6,8 +6,14 @@ import android.support.annotation.RequiresApi;
 import android.util.Base64;
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
@@ -34,7 +40,7 @@ public class NetworkUtils {
         //Log.d(TAG, "DATE DEBUG NBA-------->>>>>: "+lastDayDate2);
         try {
 
-            URL url = new URL("https://api.mysportsfeeds.com/v1.1/pull/nba/2017-playoff/scoreboard.json?fordate=" + lastDayDate2);
+            URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nba/2016-2017-regular/scoreboard.json?fordate=20161220");
             String testValue = "krunal7017:Onesports@1";
             Log.d(TAG,"getting data ");
             byte[] data1=testValue.getBytes(StandardCharsets.UTF_8);
@@ -209,8 +215,41 @@ public class NetworkUtils {
     public static String getScheduleNBA(URL url){
         String data = "";
         try{
+//
+//            URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nfl/2017-regular/full_game_schedule.json");
+//
+//            HttpConnection connection = new HttpConnection();
+//            String datatoParse = connection.parseInputData(url, query);
+//
+//            JSONArray JA = new JSONArray(datatoParse);
+//            for(int i=0; i<JA.length(); i++){
+//                JSONObject gameObject = (JSONObject) JA.get(i);
+//                JSONObject homeTeam = gameObject.getJSONObject("homeTeam");
+//                JSONObject awayTeam = gameObject.getJSONObject("awayTeam");
+//                singleParsed = "Home Team: " + homeTeam.getString("Name") + "\n" +
+//                        "Away Team: " + awayTeam.getString("Name") + "\n" +
+//                        "Location: " + gameObject.getString("location") + "\n" +
+//                        "Scheduled Date: " + gameObject.getString("date") + "\n" +
+//                        "Time: " + gameObject.getString("time") + "\n\n";
+//                dataParsed = dataParsed + singleParsed;
+//            }
+//
+//        } catch (ProtocolException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return null;
+
+
+
+
+
             //url = new URL("https://api.mysportsfeeds.com/v1.1/pull/nba/2017-playoff/full_game_schedule.json");
-            String testValue = "brijshah27:brij1234";
+            String testValue = "krunal7017:Onesports@1";
             byte[] data1=testValue.getBytes(StandardCharsets.UTF_8);
             String encoding=Base64.encodeToString(data1 ,Base64.DEFAULT);
             Log.d(TAG, "^^^INSIDE TRY");

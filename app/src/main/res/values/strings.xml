@@ -23,4 +23,8 @@
     <string name="permission_denied_explanation">Permission was denied, but is needed for core
         functionality.</string>
     <string name="settings">Settings</string>
+    <string name="title_activity_schedule_games_nba">ScheduleGamesNba</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_schedule_games__nba">ScheduleGames_Nba</string>
 </resources>
