@@ -41,20 +41,13 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements OnNavigationItemSelectedListener, LoaderManager.LoaderCallbacks<ArrayList<Void>>, NBAAdapter.ItemClickListener {
 
     static final String TAG = "mainactivity";
-
     private TextView errorMessgaeTextView;
-
     private ProgressBar progressIndicator;
-
     private NavigationView navigationView;
-
-
     private Cursor cursor;
     private NBAAdapter nbaAdapter;
     private SQLiteDatabase db;
-
     private static final int LOADER = 1;
-
     private RecyclerView rv;
 
     @Override
@@ -78,16 +71,12 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
         cursor = DBUtils.getAllitems(db);
         nbaAdapter = new NBAAdapter(cursor, this);
 
-
         SchedulerUtils.scheduleRefresh(this);
-
 
         progressIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
         errorMessgaeTextView = (TextView) findViewById(R.id.error_message_display);
         rv = (RecyclerView) findViewById(R.id.nba_response_result);
-
         rv.setAdapter(nbaAdapter);
-
         rv.setLayoutManager(new LinearLayoutManager(this));
 
     }
@@ -177,16 +166,6 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
 
         }
 
-//        if(id == R.id.nav_schedule_nbaa){
-//            Intent intent = new Intent(this, ScheduleGames_Nba.class);
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-//            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//            drawer.closeDrawer(GravityCompat.START);
-//            startActivity(intent);
-//
-//        }
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
@@ -213,8 +192,6 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
             @Override
             public void onStartLoading() {
                 super.onStartLoading();
-
-
                 progressIndicator.setVisibility(View.VISIBLE);
 
             }
@@ -226,18 +203,14 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
 
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
-
             public ArrayList<Void> loadInBackground() {
 
                 try {
                     String jsonNBA = NetworkUtils.getResponseFromHttpUrl();
                     nba = parseJSON.parseJsonData(MainActivity.this, jsonNBA);
-
                     Log.d(TAG, "NBA------------" + jsonNBA);
-
                     String jsonNfl = NetworkUtils.getResponseFromHttpUrlNfl();
                     nfl = parseJSON.parseJsonDataNfl(MainActivity.this, jsonNfl);
-
                     scoreFinal.addAll(nba);
                     scoreFinal.addAll(nfl);
 
@@ -266,7 +239,6 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
                         }
                     }
 
-
                     db = new DBHelper(this.getContext()).getWritableDatabase();
                     DBUtils.insertnews(db, scoreFinal);
 
@@ -274,8 +246,6 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-
                 return null;
             }
         };
@@ -294,103 +264,10 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
         rv.setAdapter(nbaAdapter);
         nbaAdapter.notifyDataSetChanged();
 
-
-//
-//        if (data!=null) {
-//            Log.d(TAG, "g");
-//            NBAAdapter adapter = new NBAAdapter(data);
-//            rv.setAdapter(adapter);
-//                NBAAdapter adapternhl = new NBAAdapter(newsNhl);
-//                rv.setAdapter(adapternhl);
-
-//        } else {
-//            showErrorMessage();
-
-        // }
-
     }
 
     @Override
-    public void onLoaderReset(Loader<ArrayList<Void>> loader) {
-
-    }
-
-//    public class NewsTask extends AsyncTask<String, Void, ArrayList<NBAData>> {
-//
-//
-//
-//        @Override
-//        protected void onPreExecute() {
-//            super.onPreExecute();
-//            progressIndicator.setVisibility(View.VISIBLE);
-//
-//
-//        }
-//
-//
-//
-//        @Override
-//        protected ArrayList<NBAData> doInBackground(String... params) {
-//            ArrayList<NBAData> nba= null;
-//            ArrayList<NBAData> mlb= null;
-//
-//            //New arrayList to keep all scores togather.
-//            ArrayList<NBAData> scoreFinal= new ArrayList<>();
-//
-//           // URL newsURL = NetworkUtils.buildUrl();
-//            //Log.d(TAG, "url: " + newsURL.toString());
-//
-//            try {
-//                //two calls for diffrent apis
-//
-//                //NBA api call
-//                String jsonNBA = NetworkUtils.getResponseFromHttpUrl();
-//                nba = parseJSON.parseJsonData(MainActivity.this , jsonNBA);
-//
-//                //MLB api call
-//                String jsonMLB = NetworkUtils.getResponseFromHttpUrlMlb();
-//                mlb = parseJSON.parseJsonData(MainActivity.this , jsonMLB);
-//
-//
-//                //adding all api results.
-//                scoreFinal.addAll(nba);
-//                scoreFinal.addAll(mlb);;
-//            }
-//             catch(JSONException e) {
-//                e.printStackTrace();
-//            }
-//            return scoreFinal;
-//
-//        }
-//
-//        @Override
-//        protected void onPostExecute(final ArrayList<NBAData> data) {
-//            super.onPostExecute(data);
-//            progressIndicator.setVisibility(View.INVISIBLE);
-//            errorMessgaeTextView.setVisibility(View.INVISIBLE);
-//            if (data!=null) {
-//                Log.d(TAG, "g");
-//                NBAAdapter adapter = new NBAAdapter(data);
-//                        rv.setAdapter(adapter);
-////                NBAAdapter adapternhl = new NBAAdapter(newsNhl);
-////                rv.setAdapter(adapternhl);
-//
-//            } else {
-//                showErrorMessage();
-//
-//            }
-//            //return data;
-//        }
-//
-//    }
-
-//    public void openWebPage(String url) {
-//        Uri webpage = Uri.parse(url);
-//        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
-//        if (intent.resolveActivity(getPackageManager()) != null) {
-//            startActivity(intent);
-//        }
-//    }
+    public void onLoaderReset(Loader<ArrayList<Void>> loader) {}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -413,7 +290,6 @@ public class MainActivity extends AppCompatActivity implements OnNavigationItemS
     public void onItemClick(int clickedItemIndex) {
         SchedulerUtils.stopScheduledNewsLoad(this);
         cursor.moveToPosition(clickedItemIndex);
-// Intent intent=new Intent(this,GameDetails.class);
         String hometeam = cursor.getString(cursor.getColumnIndex(Contract.TABLE_GAMES.COLUMN_NAME_HOMETEAM));
         String awayteam = cursor.getString(cursor.getColumnIndex(Contract.TABLE_GAMES.COLUMN_NAME_AWAYTEAM));
         String hometeamcity = cursor.getString(cursor.getColumnIndex(Contract.TABLE_GAMES.COLUMN_NAME_HOMETEAMCITY));

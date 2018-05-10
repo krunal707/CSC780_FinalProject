@@ -56,6 +56,5 @@ public class NflScheduleParser extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
         NbaSchedule.schedule_data1.setText(dataParsed);
-//        Standings.schedule_data1.setText(dataParsed);
     }
 }

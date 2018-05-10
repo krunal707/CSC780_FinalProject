@@ -12,14 +12,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-/**
- * Created by richa on 18-04-2018.
- */
+
 
 public class HttpConnection {
 
     String data = "";
-//    String datatoParse = "";
+
     private static BufferedReader bufferedReader;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)

@@ -50,7 +50,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private List<Marker> destinationMarkers = new ArrayList<>();
     private List<Polyline> polylinePaths = new ArrayList<>();
     private ProgressDialog progressDialog;
-    //private FusedLocationProviderClient mFusedLocationClient;
     private GoogleMap mGoogleMap;
     private String TAG;
     protected LocationManager locationManager;
@@ -102,20 +101,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         etDestination = (EditText) findViewById(R.id.etDestination);
         etOrigin.setText(address);
         etDestination.setText(location);
-        //fusedLocation test
-        // locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-//        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            // TODO: Consider calling
-//            //    ActivityCompat#requestPermissions
-//            // here to request the missing permissions, and then overriding
-//            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//            //                                          int[] grantResults)
-//            // to handle the case where the user grants the permission. See the documentation
-//            // for ActivityCompat#requestPermissions for more details.
-//            return;
-//        }
-        //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 10, 0, this);
         Log.d(TAG, "****inside onCreate*****");
         sendRequest();
         btnFindPath.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +115,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     private void sendRequest() {
-        //etOrigin.setText(address);
+
         String origin = etOrigin.getText().toString();
         String destination = etDestination.getText().toString();
         Log.d(TAG, "%%%%%%inside sendRequest%%%%%%");
@@ -163,22 +149,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .position(csula)));
         Log.d(TAG, "####### INSIDE onMapReady#######");
 
-
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            // TODO: Consider calling
-//            //    ActivityCompat#requestPermissions
-//            // here to request the missing permissions, and then overriding
-//            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//            //                                          int[] grantResults)
-//            // to handle the case where the user grants the permission. See the documentation
-//            // for ActivityCompat#requestPermissions for more details.
-//            ActivityCompat.requestPermissions(MapsActivity.this, new String[] {
-//                    Manifest.permission.ACCESS_FINE_LOCATION
-//            }, 1);
-//            return;
-//        }
-        //mMap.setMyLocationEnabled(true);
-        //enableUserLocation();
     }
     private void enableUserLocation() {
         Log.d(TAG, "*****INSIDE FIRST METHOD*******");
@@ -191,7 +161,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     android.Manifest.permission.ACCESS_FINE_LOCATION
             }, 1);
         } else if(mGoogleMap != null){
-            //mGoogleMap.setUserLocationEnabled(true);
+
             mGoogleMap.setMyLocationEnabled(true);
             if (locationManager != null) {
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000L, 0.0f, this);
@@ -287,8 +257,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onLocationChanged(Location location) {
-        //double latitude = location.getLatitude();
-        //Log.d(TAG, "+++++++++lat is: "+latitude);
+
     }
 
     @Override

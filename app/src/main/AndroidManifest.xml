@@ -33,7 +33,6 @@
         <activity android:name=".MapsActivity" />
         <activity android:name=".GetUserLocation" />
         <activity android:name=".ScheduleDetails" />
-        <!-- <activity android:name=".ScheduleGamesMLB" /> -->
         <activity android:name=".ScheduleGames_Nba" />
         <activity android:name=".ScheduleGames_Nfl" />
         <activity android:name=".NbaSchedule" />

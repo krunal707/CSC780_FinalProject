@@ -42,7 +42,6 @@ public class NbaFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
-        //return super.onCreateView(inflater, container, savedInstanceState);
 
         View view = inflater.inflate(R.layout.nba_fragment, container, false);
         homeTeamScore = (TextView) view.findViewById(R.id.homeTeamScore);
@@ -92,9 +91,6 @@ public class NbaFragment extends Fragment {
             }
         }
 
-
-
-        // return inflater.inflate(R.layout.fragment, container, false);
         homeTeam.setText(hometeam);
         awayTeam.setText(awayteam);
         homeTeamScore.setText(hometeamScore);
@@ -105,7 +101,6 @@ public class NbaFragment extends Fragment {
         dateTextView.setText(gameDate);
         return view;
     }
-
 
     private void chnageActivity(String location){
         Intent intent = new Intent(getActivity(), GetUserLocation.class);

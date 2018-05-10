@@ -52,28 +52,14 @@ public class ScheduleGames_Nfl extends AppCompatActivity
         rv.setAdapter(nbaAdapter2);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
-//        rv = (RecyclerView) findViewById(R.id.news_response_result2);
-//        rv.setLayoutManager(new LinearLayoutManager(this));
 
         Log.d(TAG, "INSIDE ONCREATE");
 
-
-//        ScheduleGamesNba.fetchSchdule task = new ScheduleGamesNba.fetchSchdule();
-//        ScheduleGames.fetchSchedule task = new ScheduleGames.fetchSchedule();
         ScheduleGames_Nfl.fetchSchedule task = new fetchSchedule();
         task.execute();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -91,11 +77,7 @@ public class ScheduleGames_Nfl extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-//        Initialize the scheduler
-//        DBUtils.deleteNewsitem(db);
-//        LoaderManager loaderManager=getSupportLoaderManager();
-//        loaderManager.restartLoader(LOADER,null,this).forceLoad();
-//        SchedulerUtils.scheduleRefresh(this);
+
     }
 
     @Override
@@ -103,11 +85,6 @@ public class ScheduleGames_Nfl extends AppCompatActivity
         super.onStop();
         SchedulerUtils.stopScheduledNewsLoad(this);
     }
-
-//    private void showErrorMessage() {
-//        errorMessgaeTextView.setVisibility(View.VISIBLE);
-//
-
 
     public class fetchSchedule extends AsyncTask<URL, Void, ArrayList<ScheduleModel>> {
 
@@ -127,9 +104,9 @@ public class ScheduleGames_Nfl extends AppCompatActivity
 
             try{
                 scheduleResponse = NetworkUtils.getScheduleNBA(url);
-//Log.d(TAG,"Getting schedule>>>>>>");
+
             }catch (Exception e){
-//Log.d(TAG, "$$$$INSIDE EXCEPTION$$$$$$");
+
                 e.printStackTrace();
             }
             try {
@@ -137,10 +114,10 @@ public class ScheduleGames_Nfl extends AppCompatActivity
 
                 Log.d(TAG, "$$$$Getting prase dataN$$$$$$");
             }catch (Exception e){
-//Log.d(TAG, "$$$$INSIDE EXCEPTION 22222$$$$$$");
+
                 e.printStackTrace();
             }
-//Log.d(TAG, "&&&& RESULTSCHEDULE: "+ resultSchedule);
+
             return resultSchedule;
         }
 
@@ -183,9 +160,6 @@ public class ScheduleGames_Nfl extends AppCompatActivity
     }
 
 
-
-
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -205,7 +179,7 @@ public class ScheduleGames_Nfl extends AppCompatActivity
             Intent intent = new Intent(this, NbaActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             //String gameName = null;
-            intent.putExtra("gameName", "mlb");
+            intent.putExtra("gameName", "nfl");
             startActivity(intent);
 
         }
@@ -256,35 +230,15 @@ public class ScheduleGames_Nfl extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.schedule_games_nba, menu);
-//        return true;
 
-//        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-
-
-//        int itemSelected = item.getItemId();
-//        if (itemSelected == R.id.action_search) {
-//            LoaderManager loaderManager = getSupportLoaderManager();
-//            loaderManager.restartLoader(LOADER, null, (LoaderManager.LoaderCallbacks<Object>) this).forceLoad();
-//        }
 
         return true;
 
-//        return super.onOptionsItemSelected(item);
     }
 }

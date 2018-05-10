@@ -24,8 +24,6 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ItemHo
         this.listener = listener;
     }
 
-
-
     public interface ItemClickListener {
         void onItemClick(int clickedItemIndex);
     }
@@ -68,20 +66,11 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ItemHo
             homeTeam = (TextView)view.findViewById(R.id.homeTeam);
             awayTeam = (TextView)view.findViewById(R.id.awayTeam);
             gameTime = (TextView)view.findViewById(R.id.time);
-//            tittle = (TextView)view.findViewById(R.id.tittle);
-//            desc = (TextView)view.findViewById(R.id.desc);
-//            date = (TextView)view.findViewById(R.id.date);
-//            url = (TextView)view.findViewById(R.id.url);
+
           view.setOnClickListener(this);
         }
 
         public void bind(int pos){
-//            NewsItem items = data.get(pos);
-//            author.setText("Author: "+ items.getAuthor());
-//            tittle.setText("Tittle: "+ items.getTittle());
-//            desc.setText("Description: "+items.getDescription());
-//            url.setText("URL: "+items.getUrl());
-//            date.setText("Date: "+items.getDate());
 
             ScheduleModel items = data.get(pos);
             homeTeam.setText("HOME:\t\t\t\t\t"+items.getHomeTeam());

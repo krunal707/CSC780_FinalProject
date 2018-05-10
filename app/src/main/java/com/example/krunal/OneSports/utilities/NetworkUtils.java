@@ -34,12 +34,10 @@ public class NetworkUtils {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -3);
         dateFormat.format(cal.getTime());
-        String lastDayDate2 = ""+dateFormat.format(cal.getTime());
-        lastDayDate2 = lastDayDate2.replaceAll("-","");
-        //This is because the API wasn't giving us current data, for live score, please check LiveScoreDemo Activity
-        lastDayDate2 = "20180114";
+//        String lastDayDate2 = ""+dateFormat.format(cal.getTime());
+//        lastDayDate2 = lastDayDate2.replaceAll("-","");
+//        lastDayDate2 = "20180114";
 
-        //Log.d(TAG, "DATE DEBUG NBA-------->>>>>: "+lastDayDate2);
         try {
 
             URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nba/2017-2018-regular/scoreboard.json?fordate=20180323");
@@ -47,23 +45,12 @@ public class NetworkUtils {
             Log.d(TAG,"getting data ");
             byte[] data1=testValue.getBytes(StandardCharsets.UTF_8);
            String encoding=Base64.encodeToString(data1 ,Base64.DEFAULT);
-           //String  encoding="Basic " + new String(android.util.Base64.encode(testValue.getBytes(), android.util.Base64.NO_WRAP));
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setDoInput(true);
-           // connection.setDoOutput(true);
+
             connection.setRequestProperty("Authorization", "Basic "+ encoding );
             InputStream content = (InputStream)connection.getInputStream();
-//            BufferedReader in   =
-//                    new BufferedReader (new InputStreamReader(content));
-//            String line;
-//
-//            while ((line = in.readLine()) != null)
-//            {
-//                builder.append(line);
-//
-//            }
-
             Scanner scanner = new Scanner(content);
             scanner.useDelimiter("\\A");
 
@@ -96,11 +83,10 @@ public class NetworkUtils {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -3);
         dateFormat.format(cal.getTime());
-        String lastDayDate2 = ""+dateFormat.format(cal.getTime());
-        lastDayDate2 = lastDayDate2.replaceAll("-","");
-        //This is because the API wasn't giving us current data, for live score, please check LiveScoreDemo Activity
-        lastDayDate2 = "20171022";
-        Log.d(TAG, "DATE DEBUG NFL-------->>>>>: "+lastDayDate2);
+//        String lastDayDate2 = ""+dateFormat.format(cal.getTime());
+//        lastDayDate2 = lastDayDate2.replaceAll("-","");
+//        lastDayDate2 = "20171022";
+//        Log.d(TAG, "DATE DEBUG NFL-------->>>>>: "+lastDayDate2);
 
 
         try {
@@ -114,20 +100,8 @@ public class NetworkUtils {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setDoInput(true);
-
-            // connection.setDoOutput(true);
             connection.setRequestProperty("Authorization", "Basic "+ encoding );
             InputStream content = (InputStream)connection.getInputStream();
-//            BufferedReader in   =
-//                    new BufferedReader (new InputStreamReader(content));
-//            String line;
-//
-//            while ((line = in.readLine()) != null)
-//            {
-//                builder.append(line);
-//
-//            }
-
             Scanner scanner = new Scanner(content);
             scanner.useDelimiter("\\A");
 
@@ -151,83 +125,11 @@ public class NetworkUtils {
 
     }
 
-
-//    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-//    public static String getStandingNBA(URL url){
-//
-//        String dataParsed = "";
-//        String singleParsed = "";
-//        String query = "teamstandingsentry";
-////        private  static  String TAG="nflStandingsParse";
-//
-//
-//        try {
-//            url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nfl/2017-regular/overall_team_standings.json?teamstats=W,L,T,PF,PA");
-//
-//            HttpConnection connection = new HttpConnection();
-//            String datatoParse = connection.parseInputData(url, query);
-//
-//            JSONArray JA = new JSONArray(datatoParse);
-//            for(int i=0; i<JA.length(); i++){
-//                JSONObject standingsObject = (JSONObject) JA.get(i);
-//                JSONObject team = standingsObject.getJSONObject("team");
-//                singleParsed =  "Team Name:\t\t\t\t\t\t" + team.getString("Name") + "\n" +
-//                        "Team Rank:\t\t\t\t\t\t\t" + standingsObject.getString("rank") + "\n\n";
-//                dataParsed = dataParsed + singleParsed;
-//            }
-//
-//        } catch (ProtocolException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return dataParsed;
-//
-//
-//
-//    }
-
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static String getScheduleNBA(URL url){
         String data = "";
         try{
-//
-//            URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nfl/2017-regular/full_game_schedule.json");
-//
-//            HttpConnection connection = new HttpConnection();
-//            String datatoParse = connection.parseInputData(url, query);
-//
-//            JSONArray JA = new JSONArray(datatoParse);
-//            for(int i=0; i<JA.length(); i++){
-//                JSONObject gameObject = (JSONObject) JA.get(i);
-//                JSONObject homeTeam = gameObject.getJSONObject("homeTeam");
-//                JSONObject awayTeam = gameObject.getJSONObject("awayTeam");
-//                singleParsed = "Home Team: " + homeTeam.getString("Name") + "\n" +
-//                        "Away Team: " + awayTeam.getString("Name") + "\n" +
-//                        "Location: " + gameObject.getString("location") + "\n" +
-//                        "Scheduled Date: " + gameObject.getString("date") + "\n" +
-//                        "Time: " + gameObject.getString("time") + "\n\n";
-//                dataParsed = dataParsed + singleParsed;
-//            }
-//
-//        } catch (ProtocolException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return null;
 
-
-
-
-
-            //url = new URL("https://api.mysportsfeeds.com/v1.1/pull/nba/2017-playoff/full_game_schedule.json");
             String testValue = "krunal7017:Onesports@1";
             byte[] data1=testValue.getBytes(StandardCharsets.UTF_8);
             String encoding=Base64.encodeToString(data1 ,Base64.DEFAULT);

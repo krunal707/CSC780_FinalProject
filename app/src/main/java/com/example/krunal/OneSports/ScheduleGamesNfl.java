@@ -59,9 +59,9 @@ public class ScheduleGamesNfl extends AppCompatActivity {
 
             try{
                 scheduleResponse = NetworkUtils.getScheduleNBA(url);
-//Log.d(TAG,"Getting schedule>>>>>>");
+
             }catch (Exception e){
-//Log.d(TAG, "$$$$INSIDE EXCEPTION$$$$$$");
+
                 e.printStackTrace();
             }
             try {
@@ -69,10 +69,10 @@ public class ScheduleGamesNfl extends AppCompatActivity {
 
             Log.d(TAG, "$$$$Getting prase dataN$$$$$$");
             }catch (Exception e){
-//Log.d(TAG, "$$$$INSIDE EXCEPTION 22222$$$$$$");
+
                 e.printStackTrace();
             }
-//Log.d(TAG, "&&&& RESULTSCHEDULE: "+ resultSchedule);
+
             return resultSchedule;
         }
 

@@ -82,8 +82,6 @@ public class NflActivity extends AppCompatActivity implements NavigationView.OnN
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-
         db=new DBHelper(this).getReadableDatabase();
         cursor= DBUtils.getAllitems(db);
         nbaAdapter2=new NBAAdapter(cursor,this);
@@ -93,7 +91,6 @@ public class NflActivity extends AppCompatActivity implements NavigationView.OnN
         progressIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
         errorMessgaeTextView = (TextView) findViewById(R.id.error_message_display);
         rv = (RecyclerView) findViewById(R.id.nba_response_result);
-
         rv.setAdapter(nbaAdapter2);
         rv.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -222,27 +219,17 @@ public class NflActivity extends AppCompatActivity implements NavigationView.OnN
                         jsonNBA  = NetworkUtils.getResponseFromHttpUrlNfl();
                     }
                     nba = parseJSON.parseJsonData(NflActivity.this, jsonNBA);
-
                     Log.d(TAG,"NBA------------"+jsonNBA);
 
-//                    String jsonNFL = NetworkUtils.getResponseFromHttpUrlNfl();
-//                    nfl = parseJSON.parseJsonData(MainActivity.this , jsonNFL);
-
                     scoreFinal.addAll(nba);
-                    //scoreFinal.addAll(nfl);
-
                     db=new DBHelper(this.getContext()).getWritableDatabase();
                     DBUtils.insertnews(db,scoreFinal);
-
-
 
                 }
                 catch (Exception e)
                 {
                     e.printStackTrace();
                 }
-
-
                 return null;
             }
         };
@@ -260,20 +247,6 @@ public class NflActivity extends AppCompatActivity implements NavigationView.OnN
         nbaAdapter2=new NBAAdapter(cursor,this);
         rv.setAdapter(nbaAdapter2);
         nbaAdapter2.notifyDataSetChanged();
-
-
-//
-//        if (data!=null) {
-//            Log.d(TAG, "g");
-//            NBAAdapter adapter = new NBAAdapter(data);
-//            rv.setAdapter(adapter);
-//                NBAAdapter adapternhl = new NBAAdapter(newsNhl);
-//                rv.setAdapter(adapternhl);
-
-//        } else {
-//            showErrorMessage();
-
-        // }
 
     }
 
@@ -305,10 +278,7 @@ public class NflActivity extends AppCompatActivity implements NavigationView.OnN
     public void onItemClick(int clickedItemIndex) {
         SchedulerUtils.stopScheduledNewsLoad(this);
         Log.d(TAG, "*********WE'RE HERE*************");
-        //Intent detailsIntent = new Intent(this, GameDetails.class);
-        //startActivity(detailsIntent);
         cursor.moveToPosition(clickedItemIndex);
-// Intent intent=new Intent(this,GameDetails.class);
         String hometeam = cursor.getString(cursor.getColumnIndex(Contract.TABLE_GAMES.COLUMN_NAME_HOMETEAM));
         String awayteam = cursor.getString(cursor.getColumnIndex(Contract.TABLE_GAMES.COLUMN_NAME_AWAYTEAM));
         String hometeamcity = cursor.getString(cursor.getColumnIndex(Contract.TABLE_GAMES.COLUMN_NAME_HOMETEAMCITY));

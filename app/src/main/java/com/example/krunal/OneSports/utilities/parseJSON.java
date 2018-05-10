@@ -20,11 +20,9 @@ public class parseJSON {
     public static ArrayList<NBAData> parseJsonData(Context context, String json)throws JSONException{
         ArrayList<NBAData> result = new ArrayList<>();
         JSONObject mainResponse = new JSONObject(json);
-//JSONArray gameScore = mainResponse.getJSONArray("gameScore");
         JSONObject scoreboard = mainResponse.getJSONObject("scoreboard");
         JSONArray gameScore = scoreboard.getJSONArray("gameScore");
         Log.d("gamescore", gameScore.toString());
-
         Log.d(TAG,"Before for loop");
 
 
@@ -55,13 +53,9 @@ public class parseJSON {
     public static ArrayList<NBAData> parseJsonDataNfl(Context context, String json)throws JSONException{
         ArrayList<NBAData> result = new ArrayList<>();
         JSONObject mainResponse = new JSONObject(json);
-//JSONArray gameScore = mainResponse.getJSONArray("gameScore");
         JSONObject scoreboard = mainResponse.getJSONObject("scoreboard");
         JSONArray gameScore = scoreboard.getJSONArray("gameScore");
         Log.d("gamescore", gameScore.toString());
-// Log.d(TAG, "****NFL gamescore length: ", ""+gameScore.length());
-
-
 
         for(int i=0; i<gameScore.length(); i++){
             JSONObject gameObject = gameScore.getJSONObject(i); //contains data under first {
@@ -102,7 +96,6 @@ public class parseJSON {
             String homeTeamName = homeTeam.getString("Name");
             String gameLocation = entryObject.getString("location");
             String gameTime = entryObject.getString("time");
-            //public ScheduleModel(String gameName, String homeTeam, String awayTeam, String gameLocation, String gameDate) {
             ScheduleModel scheduleModel = new ScheduleModel("nba", homeTeamName, awayTeamName, gameLocation, gameDate, gameTime);
             parseSchedule.add(scheduleModel);
             Log.d(TAG, "$$$$$$$$$DATA: "+awayTeamName);

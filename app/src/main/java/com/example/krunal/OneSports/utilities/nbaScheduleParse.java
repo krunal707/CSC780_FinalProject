@@ -55,9 +55,8 @@ public class nbaScheduleParse extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-//        Nba_Standings.schedule_data.setText(dataParsed);
+
         NbaSchedule.schedule_data.setText(dataParsed);
-//        Standings.schedule_data.setText(dataParsed);
-//        Standings.schedule_data1.setText(dataParsed);
+
     }
 }

@@ -35,15 +35,10 @@ public class ScheduleDetails extends AppCompatActivity {
         setContentView(R.layout.activity_schedule_details);
         homeTeamTv = (TextView) findViewById(R.id.homeTeamScore);
         awayTeamTv = (TextView) findViewById(R.id.awayTeamScore);
-       // gameDateTv = (TextView) findViewById(R.id.gameDate);
         locationTv = (TextView) findViewById(R.id.Location);
         maplocation=(Button)findViewById(R.id.maplocation);
         homeimage =(ImageView) findViewById(R.id.homeimage);
         awayimage =(ImageView) findViewById(R.id.awayimage);
-
-
-
-
 
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
@@ -67,7 +62,6 @@ public class ScheduleDetails extends AppCompatActivity {
         }
         homeTeamTv.setText(homeTeam);
         awayTeamTv.setText(awayTeam);
-       // gameDateTv.setText(gameDate);
         locationTv.setText(location);
         images.setList1(logo);
 
@@ -97,9 +91,6 @@ public class ScheduleDetails extends AppCompatActivity {
             }
         });
 
-
-
-
     }
 
     public void chnageActivity(String location){
@@ -110,10 +101,7 @@ public class ScheduleDetails extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-
-
         super.onBackPressed();
-
         Intent intent = new Intent(this, ScheduleGames_Nba.class);
         startActivity(intent);
     }

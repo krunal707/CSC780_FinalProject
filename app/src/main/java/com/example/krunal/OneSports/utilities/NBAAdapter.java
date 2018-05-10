@@ -22,7 +22,6 @@ public class NBAAdapter extends RecyclerView.Adapter<NBAAdapter.ItemHolder> {
     private Cursor cursor;
 
     public NBAAdapter(Cursor cursor,ItemClickListener listener){
-        //this.data = data;
         this.listener = listener;
         this.cursor=cursor;
     }
@@ -71,24 +70,14 @@ public class NBAAdapter extends RecyclerView.Adapter<NBAAdapter.ItemHolder> {
             super(view);
             homeTeam = (TextView)view.findViewById(R.id.homeTeam);
             awayTeam = (TextView)view.findViewById(R.id.awayTeam);
-          //  homeTeamCity = (TextView)view.findViewById(R.id.homeTeamCity);
-          //  awayTeamCity = (TextView)view.findViewById(R.id.awayTeamCity);
             vs=(ImageView) view.findViewById(R.id.vs_image);
             homeTeamScore = (TextView)view.findViewById(R.id.homeTeamScore);
             awayTeamScore = (TextView)view.findViewById(R.id.awayTeamScore);
-           // Location = (TextView)view.findViewById(R.id.location);
              view.setOnClickListener(this);
         }
 
         public void bind(int pos){
-//            NBAData items = data.get(pos);
-//            homeTeam.setText("Home Team: "+ items.getHomeTeam());
-//            awayteam.setText("Away Team: "+ items.getAwayTeam());
-//            homeTeamCity.setText("Home Team City: "+items.getAwayTeam());
-//            awayTeamCity.setText("Away Team City: "+items.getAwayTeamCity());
-//            homeTeamScore.setText("Home team score: "+items.getHomeScore());
-//            awayTeamScore.setText("Away team score: "+items.getAwayScore());
-//            location.setText("Location: "+items.getLocation());
+//
 
             cursor.moveToPosition(pos);
                     String hometeam=cursor.getString(cursor.getColumnIndex(Contract.TABLE_GAMES.COLUMN_NAME_HOMETEAM));
@@ -101,12 +90,8 @@ public class NBAAdapter extends RecyclerView.Adapter<NBAAdapter.ItemHolder> {
 
             homeTeam.setText(hometeam);
             awayTeam.setText(awayteam);
-            //homeTeamCity.setText("Home Team City :"+hometeamcity);
-            //awayTeamCity.setText("Away Team City :"+awayteamcity);
             homeTeamScore.setText(hometeamscore);
             awayTeamScore.setText(awayteamscore);
-            //Location.setText("Location is :"+location);
-
 
         }
 
@@ -117,12 +102,6 @@ public class NBAAdapter extends RecyclerView.Adapter<NBAAdapter.ItemHolder> {
 
         }
 
-
-//        @Override
-//        public void onClick(View v) {
-//            int pos = getAdapterPosition();
-//            listener.onItemClick(pos);
-//        }
     }
 
 }

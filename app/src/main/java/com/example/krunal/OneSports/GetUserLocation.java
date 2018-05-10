@@ -56,8 +56,7 @@ public class GetUserLocation extends AppCompatActivity {
 
         mLatitudeLabel = getResources().getString(R.string.latitude_label);
         mLongitudeLabel = getResources().getString(R.string.longitude_label);
-        //mLatitudeText = (TextView) findViewById((R.id.latitude_text));
-        //mLongitudeText = (TextView) findViewById((R.id.longitude_text));
+
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -87,14 +86,7 @@ public class GetUserLocation extends AppCompatActivity {
         }
     }
 
-    /**
-     * Provides a simple way of getting a device's location and is well suited for
-     * applications that do not require a fine-grained location and that do not need location
-     * updates. Gets the best and most recent location currently available, which may be null
-     * in rare cases when a location is not available.
-     * <p>
-     * Note: this method should be called after location permission has been granted.
-     */
+
     @SuppressWarnings("MissingPermission")
     private void getLastLocation() {
         mFusedLocationClient.getLastLocation()
@@ -104,24 +96,13 @@ public class GetUserLocation extends AppCompatActivity {
                         if (task.isSuccessful() && task.getResult() != null) {
                             mLastLocation = task.getResult();
 
-//                            mLatitudeText.setText(String.format(Locale.ENGLISH, "%s: %f",
-//                                    mLatitudeLabel,
-//                                    mLastLocation.getLatitude()));
-//                            mLongitudeText.setText(String.format(Locale.ENGLISH, "%s: %f",
-//                                    mLongitudeLabel,
-//                                    mLastLocation.getLongitude()));
-                            //test print
-
-
                             geocoder  = new Geocoder(GetUserLocation.this, Locale.getDefault());
                             try {
                                 addresses = geocoder.getFromLocation(mLastLocation.getLatitude(), mLastLocation.getLongitude(), 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
-                            //getCompleteAddressString(mLastLocation.getLatitude(), mLastLocation.getLongitude());
                             String address = addresses.get(0).getAddressLine(0);
-                            //mLatitudeText.setText(address);
                             Log.d(TAG,"address is:>>>"+address);
                             chnageActivity(address);
 
@@ -149,10 +130,7 @@ public class GetUserLocation extends AppCompatActivity {
     }
 
     private void showSnackbar(final String text) {
-//        View container = findViewById(R.id.);
-//        if (container != null) {
-//            Snackbar.make(container, text, Snackbar.LENGTH_LONG).show();
-//        }
+//
     }
 
 
@@ -214,29 +192,18 @@ public class GetUserLocation extends AppCompatActivity {
         Log.i(TAG, "onRequestPermissionResult");
         if (requestCode == REQUEST_PERMISSIONS_REQUEST_CODE) {
             if (grantResults.length <= 0) {
-                // If user interaction was interrupted, the permission request is cancelled and you
-                // receive empty arrays.
+
                 Log.i(TAG, "User interaction was cancelled.");
             } else if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted.
+
                 getLastLocation();
             } else {
-                // Permission denied.
 
-                // Notify the user via a SnackBar that they have rejected a core permission for the
-                // app, which makes the Activity useless. In a real app, core permissions would
-                // typically be best requested during a welcome-screen flow.
-
-                // Additionally, it is important to remember that a permission might have been
-                // rejected without asking the user for permission (device policy or "Never ask
-                // again" prompts). Therefore, a user interface affordance is typically implemented
-                // when permissions are denied. Otherwise, your app could appear unresponsive to
-                // touches or interactions which have required permissions.
                 showSnackbar(R.string.permission_denied_explanation, R.string.settings,
                         new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                // Build intent that displays the App settings screen.
+
                                 Intent intent = new Intent();
                                 intent.setAction(
                                         Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
