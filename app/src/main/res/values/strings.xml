@@ -28,4 +28,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_schedule_games__nba">ScheduleGames_Nba</string>
     <string name="title_activity_schedule_games__nfl">ScheduleGames_Nfl</string>
+    <string name="title_activity_nba__standings">Nba_Standings</string>
+    <string name="title_activity_standings">Standings</string>
 </resources>

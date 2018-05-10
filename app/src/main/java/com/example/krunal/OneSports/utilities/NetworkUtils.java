@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -36,11 +37,12 @@ public class NetworkUtils {
         String lastDayDate2 = ""+dateFormat.format(cal.getTime());
         lastDayDate2 = lastDayDate2.replaceAll("-","");
         //This is because the API wasn't giving us current data, for live score, please check LiveScoreDemo Activity
-        lastDayDate2 = "20170424";
+        lastDayDate2 = "20180114";
+
         //Log.d(TAG, "DATE DEBUG NBA-------->>>>>: "+lastDayDate2);
         try {
 
-            URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nba/2016-2017-regular/scoreboard.json?fordate=20161220");
+            URL url = new URL("https://api.mysportsfeeds.com/v1.1/pull/nba/2017-playoff/scoreboard.json?fordate=20170424");
             String testValue = "krunal7017:Onesports@1";
             Log.d(TAG,"getting data ");
             byte[] data1=testValue.getBytes(StandardCharsets.UTF_8);
@@ -103,7 +105,7 @@ public class NetworkUtils {
 
         try {
 
-            URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nfl/2017-regular/scoreboard.json?fordate=" + lastDayDate2);
+            URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nfl/2015-2016-regular/scoreboard.json?fordate=20151129");
             String testValue = "krunal7017:Onesports@1";
             Log.d(TAG,"getting data in NFL ");
             byte[] data1=testValue.getBytes(StandardCharsets.UTF_8);
@@ -148,6 +150,45 @@ public class NetworkUtils {
         return  data;
 
     }
+
+
+//    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+//    public static String getStandingNBA(URL url){
+//
+//        String dataParsed = "";
+//        String singleParsed = "";
+//        String query = "teamstandingsentry";
+////        private  static  String TAG="nflStandingsParse";
+//
+//
+//        try {
+//            url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nfl/2017-regular/overall_team_standings.json?teamstats=W,L,T,PF,PA");
+//
+//            HttpConnection connection = new HttpConnection();
+//            String datatoParse = connection.parseInputData(url, query);
+//
+//            JSONArray JA = new JSONArray(datatoParse);
+//            for(int i=0; i<JA.length(); i++){
+//                JSONObject standingsObject = (JSONObject) JA.get(i);
+//                JSONObject team = standingsObject.getJSONObject("team");
+//                singleParsed =  "Team Name:\t\t\t\t\t\t" + team.getString("Name") + "\n" +
+//                        "Team Rank:\t\t\t\t\t\t\t" + standingsObject.getString("rank") + "\n\n";
+//                dataParsed = dataParsed + singleParsed;
+//            }
+//
+//        } catch (ProtocolException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return dataParsed;
+//
+//
+//
+//    }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static String getScheduleNBA(URL url){

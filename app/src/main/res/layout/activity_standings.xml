@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <!--tools:context="com.example.krunal.onesports.NbaSchedule">-->
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+
+        android:text="Get Schedule NBA"
+        android:layout_marginBottom="10dp"
+
+        android:id="@+id/schedule_button_nba"/>
+
+    <!--android:layout_centerHorizontal="true"-->
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="Get Schedule NFL"
+        android:layout_marginBottom="10dp"
+        android:layout_toRightOf="@+id/schedule_button_nba"
+
+        android:id="@+id/schedule_button_nfl"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/schedule_button_nba">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:textSize="25sp"
+            android:hint="Get Schedule Here"
+            android:id="@+id/schedule_fetchdata"/>
+
+    </ScrollView>
+
+
+</RelativeLayout>
