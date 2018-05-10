@@ -58,10 +58,16 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ItemHo
 
 
         TextView date;
+        TextView homeTeam;
+        TextView awayTeam;
+        TextView gameTime;
 
         ItemHolder(View view){
             super(view);
             date = (TextView)view.findViewById(R.id.date);
+            homeTeam = (TextView)view.findViewById(R.id.homeTeam);
+            awayTeam = (TextView)view.findViewById(R.id.awayTeam);
+            gameTime = (TextView)view.findViewById(R.id.time);
 //            tittle = (TextView)view.findViewById(R.id.tittle);
 //            desc = (TextView)view.findViewById(R.id.desc);
 //            date = (TextView)view.findViewById(R.id.date);
@@ -78,7 +84,10 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ItemHo
 //            date.setText("Date: "+items.getDate());
 
             ScheduleModel items = data.get(pos);
-            date.setText("Date:"+items.getGameDate());
+            homeTeam.setText("HOME:\t\t\t\t\t"+items.getHomeTeam());
+            awayTeam.setText("AWAY:\t\t\t\t\t"+items.getAwayTeam());
+            date.setText("DATE:\t\t\t\t\t\t"+items.getGameDate());
+            gameTime.setText("TIME:\t\t\t\t\t\t\t"+items.getGameTime() + "\n");
         }
 
 

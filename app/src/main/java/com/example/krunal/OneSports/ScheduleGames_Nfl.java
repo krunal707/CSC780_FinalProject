@@ -233,6 +233,14 @@ public class ScheduleGames_Nfl extends AppCompatActivity
             intent.putExtra("gameName", "nfl_schedule");
             startActivity(intent);
         }
+        if(id == R.id.nav_nba_standings){
+            Intent intent = new Intent(this, NbaSchedule.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+            startActivity(intent);
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -252,7 +260,7 @@ public class ScheduleGames_Nfl extends AppCompatActivity
 //        getMenuInflater().inflate(R.menu.schedule_games_nba, menu);
 //        return true;
 
-        getMenuInflater().inflate(R.menu.main, menu);
+//        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -269,11 +277,11 @@ public class ScheduleGames_Nfl extends AppCompatActivity
 //        }
 
 
-        int itemSelected = item.getItemId();
-        if (itemSelected == R.id.action_search) {
-            LoaderManager loaderManager = getSupportLoaderManager();
-            loaderManager.restartLoader(LOADER, null, (LoaderManager.LoaderCallbacks<Object>) this).forceLoad();
-        }
+//        int itemSelected = item.getItemId();
+//        if (itemSelected == R.id.action_search) {
+//            LoaderManager loaderManager = getSupportLoaderManager();
+//            loaderManager.restartLoader(LOADER, null, (LoaderManager.LoaderCallbacks<Object>) this).forceLoad();
+//        }
 
         return true;
 

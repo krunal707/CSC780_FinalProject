@@ -7,13 +7,15 @@ public class ScheduleModel {
     public String awayTeam;
     public String gameLocation;
     public String gameDate;
+    public String gameTime;
 
-    public ScheduleModel(String gameName, String homeTeam, String awayTeam, String gameLocation, String gameDate) {
+    public ScheduleModel(String gameName, String homeTeam, String awayTeam, String gameLocation, String gameDate, String gameTime) {
         this.gameName = gameName;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.gameLocation = gameLocation;
         this.gameDate = gameDate;
+        this.gameTime = gameTime;
     }
 
     public String getGameName() {
@@ -54,5 +56,13 @@ public class ScheduleModel {
 
     public void setGameDate(String gameDate) {
         this.gameDate = gameDate;
+    }
+
+    public String getGameTime() {
+        return gameTime;
+    }
+
+    public void setGameTime(String gameTime) {
+        this.gameTime = gameTime;
     }
 }

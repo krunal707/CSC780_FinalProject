@@ -108,7 +108,7 @@ public class ScheduleGames_Nba extends AppCompatActivity
 //        DBUtils.deleteNewsitem(db);
 //        LoaderManager loaderManager=getSupportLoaderManager();
 //        loaderManager.restartLoader(LOADER,null,this).forceLoad();
-        SchedulerUtils.scheduleRefresh(this);
+//        SchedulerUtils.scheduleRefresh(this);
     }
 
     @Override
@@ -237,6 +237,14 @@ public class ScheduleGames_Nba extends AppCompatActivity
             intent.putExtra("gameName", "Nfl Schedule");
             startActivity(intent);
         }
+        if(id == R.id.nav_nba_standings){
+            Intent intent = new Intent(this, NbaSchedule.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+            startActivity(intent);
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -275,7 +283,7 @@ public class ScheduleGames_Nba extends AppCompatActivity
 //        getMenuInflater().inflate(R.menu.schedule_games_nba, menu);
 //        return true;
 
-        getMenuInflater().inflate(R.menu.main, menu);
+//        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -286,11 +294,11 @@ public class ScheduleGames_Nba extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
 //        int id = item.getItemId();
 
-        int itemSelected = item.getItemId();
-        if (itemSelected == R.id.action_search) {
-            LoaderManager loaderManager = getSupportLoaderManager();
-            loaderManager.restartLoader(LOADER, null, (LoaderManager.LoaderCallbacks<Object>) this).forceLoad();
-        }
+//        int itemSelected = item.getItemId();
+//        if (itemSelected == R.id.action_search) {
+//            LoaderManager loaderManager = getSupportLoaderManager();
+//            loaderManager.restartLoader(LOADER, null, (LoaderManager.LoaderCallbacks<Object>) this).forceLoad();
+//        }
 
         //noinspection SimplifiableIfStatement
 //        if (id == R.id.action_settings) {

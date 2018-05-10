@@ -42,7 +42,7 @@ public class NetworkUtils {
         //Log.d(TAG, "DATE DEBUG NBA-------->>>>>: "+lastDayDate2);
         try {
 
-            URL url = new URL("https://api.mysportsfeeds.com/v1.1/pull/nba/2017-playoff/scoreboard.json?fordate=20170424");
+            URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nba/2017-2018-regular/scoreboard.json?fordate=20180323");
             String testValue = "krunal7017:Onesports@1";
             Log.d(TAG,"getting data ");
             byte[] data1=testValue.getBytes(StandardCharsets.UTF_8);
@@ -105,7 +105,7 @@ public class NetworkUtils {
 
         try {
 
-            URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nfl/2015-2016-regular/scoreboard.json?fordate=20151129");
+            URL url = new URL("https://api.mysportsfeeds.com/v1.2/pull/nfl/2017-regular/scoreboard.json?fordate=20171231");
             String testValue = "krunal7017:Onesports@1";
             Log.d(TAG,"getting data in NFL ");
             byte[] data1=testValue.getBytes(StandardCharsets.UTF_8);

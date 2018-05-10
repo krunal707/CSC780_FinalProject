@@ -101,8 +101,9 @@ public class parseJSON {
             JSONObject homeTeam = entryObject.getJSONObject("homeTeam");
             String homeTeamName = homeTeam.getString("Name");
             String gameLocation = entryObject.getString("location");
+            String gameTime = entryObject.getString("time");
             //public ScheduleModel(String gameName, String homeTeam, String awayTeam, String gameLocation, String gameDate) {
-            ScheduleModel scheduleModel = new ScheduleModel("nba", homeTeamName, awayTeamName, gameLocation, gameDate);
+            ScheduleModel scheduleModel = new ScheduleModel("nba", homeTeamName, awayTeamName, gameLocation, gameDate, gameTime);
             parseSchedule.add(scheduleModel);
             Log.d(TAG, "$$$$$$$$$DATA: "+awayTeamName);
             Log.d(TAG, "$$$$$$$$$DATA: "+homeTeamName);
